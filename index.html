@@ -34,12 +34,17 @@
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
+    #chatbot-container {
+      width: 100%;
+      height: 500px; /* ustaw wysokość czatu */
+    }
   </style>
 </head>
 <body>
   <div class="chatbox">
     <h1>Deep Research Agent</h1>
     <p>Otwórz czat, zadaj pytanie — AI zrobi badanie i pokaże źródła.</p>
+    <div id="chatbot-container"></div>
   </div>
 
   <script type="module">
@@ -47,8 +52,8 @@
     Chatbot.init({
       chatflowid: "52de31d0-37a2-4d13-afd9-1a1c197e6a81",
       apiHost: "https://flowisetj.onrender.com",
+      selector: '#chatbot-container'  // tutaj określamy gdzie ma się pojawić czat
     })
   </script>
 </body>
 </html>
-
