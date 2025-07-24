@@ -9,20 +9,18 @@
       color: #e0e0e0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      position: relative;
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .chatbox {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       background-color: #1e1e1e;
       border: 2px solid #00ffff;
       border-radius: 1rem;
       box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-      padding: 3rem;
-      max-width: 600px;
+      padding: 2rem;
+      max-width: 650px;
       width: 90%;
       text-align: center;
     }
@@ -36,7 +34,17 @@
     }
     #chatbot-container {
       width: 100%;
-      height: 500px; /* ustaw wysokość czatu */
+      height: 500px;
+      position: relative;
+    }
+    /* Wymuszenie stylu na iframe/div czatu */
+    #chatbot-container > iframe,
+    #chatbot-container > div {
+      position: static !important;
+      bottom: auto !important;
+      right: auto !important;
+      width: 100% !important;
+      height: 100% !important;
     }
   </style>
 </head>
@@ -52,7 +60,7 @@
     Chatbot.init({
       chatflowid: "52de31d0-37a2-4d13-afd9-1a1c197e6a81",
       apiHost: "https://flowisetj.onrender.com",
-      selector: '#chatbot-container'  // tutaj określamy gdzie ma się pojawić czat
+      selector: '#chatbot-container'
     })
   </script>
 </body>
