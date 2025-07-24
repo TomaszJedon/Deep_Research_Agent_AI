@@ -4,20 +4,6 @@
   <meta charset="UTF-8" />
   <title>Deep Research Agent</title>
   <style>
-.flowise-chatbot {
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 600px !important;       /* szerokość czatu */
-  height: 700px !important;      /* wysokość czatu */
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-  border-radius: 1rem;
-  border: 2px solid #00ffff;
-  background-color: #1e1e1e;
-  z-index: 9999 !important;
-}
-
     body {
       background-color: #121212;
       color: #e0e0e0;
@@ -37,6 +23,7 @@
       max-width: 650px;
       width: 90%;
       text-align: center;
+      margin-bottom: 2rem;
     }
     h1 {
       font-size: 2.5rem;
@@ -50,15 +37,6 @@
       width: 100%;
       height: 500px;
       position: relative;
-    }
-    /* Wymuszenie stylu na iframe/div czatu */
-    #chatbot-container > iframe,
-    #chatbot-container > div {
-      position: static !important;
-      bottom: auto !important;
-      right: auto !important;
-      width: 100% !important;
-      height: 100% !important;
     }
   </style>
 </head>
@@ -75,7 +53,27 @@
       chatflowid: "52de31d0-37a2-4d13-afd9-1a1c197e6a81",
       apiHost: "https://flowisetj.onrender.com",
       selector: '#chatbot-container'
-    })
+    });
+
+    setTimeout(() => {
+      const chatEl = document.querySelector('#chatbot-container').firstElementChild;
+      if (chatEl) {
+        chatEl.style.position = 'fixed';
+        chatEl.style.top = '50%';
+        chatEl.style.left = '50%';
+        chatEl.style.transform = 'translate(-50%, -50%)';
+        chatEl.style.width = '600px';
+        chatEl.style.height = '700px';
+        chatEl.style.borderRadius = '1rem';
+        chatEl.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.4)';
+        chatEl.style.border = '2px solid #00ffff';
+        chatEl.style.backgroundColor = '#1e1e1e';
+        chatEl.style.zIndex = '9999';
+      } else {
+        console.log('Nie znaleziono elementu czatu');
+      }
+    }, 3000);
   </script>
 </body>
 </html>
+
